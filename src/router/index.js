@@ -6,6 +6,7 @@ import Dashboard from "../views/Dashboard/Dashboard.vue";
 import Home from "../views/Home/Home.vue";
 import Schedules from "../views/Schedules/Schedules.vue";
 import Terms from "../views/Terms/Terms.vue";
+import NotFound from "../components/NotFound.vue";
 
 const routes = [
   {
@@ -35,16 +36,15 @@ const routes = [
     //   return (to.path = "dashboard/home");
     // },
     children: [
-      { path: "home", name:"Home", component: Home },
+      { path: "home", name: "Home", component: Home },
       { path: "schedules", component: Schedules },
     ],
   },
-
-  // {
-  //     path: "*",
-  //     name: "NotFound",
-  //     component: NotFound,
-  // },
+  {
+    path: "/notfound",
+    name: "NotFound",
+    component: NotFound,
+  },
 ];
 
 const router = createRouter({
