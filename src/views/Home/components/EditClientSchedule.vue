@@ -92,7 +92,7 @@
               outer-class="m-5"
               input-class="input input-bordered rounded-md text-lg"
               label-class="text-lg"
-              type="textarea"             
+              type="textarea"
               message-class="ml-2 text-error text-xs"
               validation="required"
               :validation-messages="{
@@ -110,7 +110,7 @@
 export default {
   data() {
     return {
-      step: 3,
+      step: 1,
     };
   },
 };

@@ -28,20 +28,14 @@ const routes = [
     name: "Terms",
     component: Terms,
   },
-
-
-
-  // {
-  //     path: '/dashboard',
-  //     name: 'Dashboard',
-  //     component: Dashboard,
-  // },
-
   {
     path: "/dashboard/",
     component: Dashboard,
+    // beforeEnter: (to, from) => {
+    //   return (to.path = "dashboard/home");
+    // },
     children: [
-      { path: "home", component: Home },
+      { path: "home", name:"Home", component: Home },
       { path: "schedules", component: Schedules },
     ],
   },

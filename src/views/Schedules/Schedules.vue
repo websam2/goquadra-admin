@@ -7,7 +7,7 @@
       <div class="flex flex-row justify-between">
         <SubTitle text="Lista de campos e horários cadastrados"></SubTitle>
         <a
-          href="#registration"
+          href="#registerSchedule"
           class="btn btn-success ml-20 mt-2 mb-2 w-42 text-base-100"
           >Adicionar Registro</a
         >
@@ -34,26 +34,16 @@
               <td>Crédito</td>
               <td>R$170,00</td>
               <td class="flex">
+                <a href="#editRegisterSchedule">
+                  <img
+                    class="m-auto cursor-pointer"
+                    src="../../assets/pen.svg"
+                    alt="pen"
+                /></a>
                 <img
-                  @click="goTo('')"
-                  class="m-auto cursor-pointer"
-                  src="../../assets/pen.svg"
-                  alt="pen"
-                  srcset=""
-                />
-                <img
-                  @click="goTo('')"
-                  class="m-auto cursor-pointer"
-                  src="../../assets/eye.svg"
-                  alt="pen"
-                  srcset=""
-                />
-                <img
-                  @click="goTo('')"
                   class="m-auto cursor-pointer"
                   src="../../assets/trash.svg"
-                  alt="pen"
-                  srcset=""
+                  alt="trash"
                 />
               </td>
             </tr>
@@ -68,8 +58,8 @@
       <button class="btn">4</button>
     </div>
 
-    <!-- Código da modal -->
-    <div class="modal" id="registration">
+    <!-- Modal para registar -->
+    <div class="modal" id="registerSchedule">
       <div
         class="modal-box w-11/12 max-w-6xl bg-base-100 flex flex-col p-6 rounded-md"
       >
@@ -98,12 +88,50 @@
             <li class="step step-primary">Quadra</li>
             <li class="step">Cadastro</li>
             <li class="step">Data / Hora</li>
-            <li class="step">Informações adcionais</li>
+            <li class="step">Galeria de fotos</li>
           </ul>
         </div>
         <div class="flex flex-col mt-2">
-          <FormSchedule></FormSchedule>
-        </div>    
+          <RegisterSchedule></RegisterSchedule>
+        </div>
+      </div>
+    </div>
+        <!-- Modal para editar o registro -->
+    <div class="modal" id="editRegisterSchedule">
+      <div
+        class="modal-box w-11/12 max-w-6xl bg-base-100 flex flex-col p-6 rounded-md"
+      >
+        <div class="flex flex-row justify-between">
+          <SubTitle text="Cadastro da quadra, horários e pagamento"></SubTitle>
+          <button class="btn btn-circle btn-outline">
+            <a href="#"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                /></svg
+            ></a>
+          </button>
+        </div>
+        <div class="flex justify-center">
+          <ul class="steps mt-4">
+            <li class="step step-primary">Quadra</li>
+            <li class="step">Cadastro</li>
+            <li class="step">Data / Hora</li>
+            <li class="step">Galeria de fotos</li>
+          </ul>
+        </div>
+        <div class="flex flex-col mt-2">
+          <EditRegisterSchedule></EditRegisterSchedule>
+        </div>
       </div>
     </div>
   </div>
@@ -112,8 +140,9 @@
 <script>
 import SubTitle from "../../components/SubTitle.vue";
 import Title from "../../components/Title.vue";
-import FormSchedule from "./components/FormSchedule.vue";
+import RegisterSchedule from "./components/RegisterSchedule.vue";
+import EditRegisterSchedule from "./components/EditRegisterSchedule.vue";
 export default {
-  components: { Title, SubTitle, FormSchedule },
+  components: { Title, SubTitle, RegisterSchedule, EditRegisterSchedule },
 };
 </script>

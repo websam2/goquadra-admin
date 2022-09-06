@@ -22,7 +22,7 @@
         >
       </div>
       <div>
-        <table class="table table-zebra w-full">
+        <table class="flex flex-col table table-zebra w-full">
           <!-- CRUD table head -->
           <thead>
             <tr>
@@ -40,27 +40,18 @@
               <td>Nome do Campo</td>
               <td>Crédito</td>
               <td>Coberta cima</td>
-              <td class="flex">
+              <td class="flex flex-row">
+                <a href="#editClientSchedule"
+                  ><img
+                    class="m-2 cursor-pointer"
+                    src="../../assets/pen.svg"
+                    alt="pen"
+                  />
+                </a>
                 <img
-                  @click="goTo('')"
-                  class="m-auto cursor-pointer"
-                  src="../../assets/pen.svg"
-                  alt="pen"
-                  srcset=""
-                />
-                <img
-                  @click="goTo('')"
-                  class="m-auto cursor-pointer"
-                  src="../../assets/eye.svg"
-                  alt="pen"
-                  srcset=""
-                />
-                <img
-                  @click="goTo('')"
-                  class="m-auto cursor-pointer"
+                  class="m-2 cursor-pointer"
                   src="../../assets/trash.svg"
-                  alt="pen"
-                  srcset=""
+                  alt="trash"
                 />
               </td>
             </tr>
@@ -82,7 +73,7 @@
         </div>
       </div>
     </div>
-    <!-- Código da modal -->
+    <!-- Modal com os steps AGENDAR -->
     <div class="modal" id="schedule">
       <div
         class="modal-box w-11/12 max-w-6xl bg-base-100 flex flex-col p-6 rounded-md"
@@ -109,14 +100,50 @@
         </div>
         <div class="flex justify-center">
           <ul class="steps mt-4">
-            <li class="step step-primary">Selecionar</li>
-            <li class="step">Dados do campo</li>
+            <li class="step step-primary">Dados do campo</li>
             <li class="step">Data / Hora</li>
             <li class="step">Forma de pagamento</li>
           </ul>
         </div>
         <div class="flex flex-col mt-2">
           <ClientSchedule></ClientSchedule>
+        </div>
+      </div>
+    </div>
+    <!-- Modal com os steps editar o agendamento -->
+    <div class="modal" id="editClientSchedule">
+      <div
+        class="modal-box w-11/12 max-w-6xl bg-base-100 flex flex-col p-6 rounded-md"
+      >
+        <div class="flex flex-row justify-between">
+          <SubTitle text="Agendamento"></SubTitle>
+          <button class="btn btn-circle btn-outline">
+            <a href="#"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                /></svg
+            ></a>
+          </button>
+        </div>
+        <div class="flex justify-center">
+          <ul class="steps mt-4">
+            <li class="step step-primary">Dados do campo</li>
+            <li class="step">Data / Hora</li>
+            <li class="step">Forma de pagamento</li>
+          </ul>
+        </div>
+        <div class="flex flex-col mt-2">
+          <EditClientSchedule></EditClientSchedule>
         </div>
       </div>
     </div>
@@ -131,9 +158,18 @@ import LineChart2 from "../../components/LineChart2.vue";
 import SubTitle from "../../components/SubTitle.vue";
 import Title from "../../components/Title.vue";
 import ClientSchedule from "./components/ClientSchedule.vue";
+import EditClientSchedule from "./components/EditClientSchedule.vue";
 
 export default {
-  components: { Title, Card, SubTitle, LineChart1, LineChart2, ClientSchedule },
+  components: {
+    Title,
+    Card,
+    SubTitle,
+    LineChart1,
+    LineChart2,
+    ClientSchedule,
+    EditClientSchedule,
+  },
 
   // props: {
   //   today: Number,
