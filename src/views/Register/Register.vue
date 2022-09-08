@@ -7,13 +7,13 @@
     <!-- Notificação de cadastro concluído -->
     <div
       v-show="isSucess"
-      class="alert alert-success shadow-lg w-[513px] justify-center animate-bounce"
+      class="alert alert-success shadow-lg sm:w-[640px] justify-center animate-bounce"
     >
       <Sucess>Yeah! Parabéns seu registro foi concluído!</Sucess>
     </div>
 
     <!-- Parametros da página   -->
-    <div class="flex flex-col items-center w-[512px]">
+    <div class="flex flex-col items-center">
       <img
         class="w-[242px] m-6"
         src="../../assets/logo.png"
@@ -21,7 +21,7 @@
         srcset=""
       />
       <div
-        class="login-form bg-base-100 w-[100%] h-[100%] rounded-md flex flex-col justify-around drop-shadow-md"
+        class="login-form bg-base-100 sm:w-[512px] h-[100%] rounded-md flex flex-col justify-around drop-shadow-md"
       >
         <FormKit
           type="form"

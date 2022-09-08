@@ -1,17 +1,17 @@
 <template>
   <div
     id="home"
-    class="bg-base-100 flex flex-col w-[100%] h-[100%] overflow-y-auto p-6"
+    class="bg-base-100 flex flex-col h-[100%] overflow-y-auto p-6"
   >
     <Title text="Painel de Controle"></Title>
-    <div class="flex flex-row justify-center">
+    <div class="flex flex-row  justify-center">
       <Card text="Agendamento Diários" number="20"> </Card>
       <Card text="Agendamento Mensais" number="20"> </Card>
       <Card text="Quadras" number="20"> </Card>
       <Card text="Visualização Perfil" number="20"> </Card>
     </div>
     <div
-      class="flex flex-col h-[469px] bg-neutral rounded-md shadow-md m-10 p-6"
+      class="flex flex-col h-[469px] bg-neutral rounded-md shadow-md m-5 p-6"
     >
       <div class="flex flex-row justify-between">
         <SubTitle text="Agendamentos diários"></SubTitle>
@@ -21,7 +21,7 @@
           >Agendar</a
         >
       </div>
-      <div>
+      <div class="overflow-x-auto">
         <table class="flex flex-col table table-zebra w-full">
           <!-- CRUD table head -->
           <thead>
@@ -59,14 +59,16 @@
         </table>
       </div>
     </div>
+
+    <!-- Cards dos gráficos -->
     <div class="flex fle-row m-2 justify-between">
-      <div class="flex flex-col bg-neutral rounded-md shadow-md m-auto p-6">
+      <div class="flex flex-col w-[50%] bg-neutral rounded-md shadow-md m-auto p-6">
         <SubTitle text="Recebimentos semanais"></SubTitle>
         <div class="chart1">
           <LineChart1 class=""></LineChart1>
         </div>
       </div>
-      <div class="flex flex-col bg-neutral rounded-md shadow-md m-auto p-6">
+      <div class="flex flex-col w-[50%] bg-neutral rounded-md shadow-md m-auto p-6">
         <SubTitle text="Recebimentos mensais"></SubTitle>
         <div class="chart2">
           <LineChart2 class=""></LineChart2>

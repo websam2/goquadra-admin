@@ -1,4 +1,5 @@
 <template>
+<div class="">
     <Bar
     :chart-options="chartOptions"
     :chart-data="chartData"
@@ -10,6 +11,7 @@
     :width="width"
     :height="height"
   />
+  </div>
 
 </template>
 

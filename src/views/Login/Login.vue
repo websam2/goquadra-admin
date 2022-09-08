@@ -4,7 +4,7 @@
   >
     <Loading v-show="isLoading"></Loading>
 
-    <div class="flex flex-col items-center w-[512px]">
+    <div class="flex flex-col items-center sm:w-[512px]">
       <img
         class="w-[242px]"
         src="../../assets/logo.png"
@@ -18,7 +18,7 @@
         >
       </p>
       <div
-        class="login-form bg-base-100 w-[100%] h-[100%] rounded-md flex flex-col justify-around drop-shadow-md"
+        class="rounded-md bg-base-100 sm:w-[512px] flex flex-col justify-around drop-shadow-md"
       >
         <FormKit
           type="form"
@@ -86,7 +86,7 @@
     </div>
     <div
       v-show="isError"
-      class="alert alert-error shadow-lg w-[513px] justify-center animate-bounce mt-5"
+      class="alert alert-error shadow-lg sm:w-[513px] justify-center animate-bounce mt-5"
     >
       <Error
         >Whoops... Deu algo de errado. Dados não confere no cadastro.</Error

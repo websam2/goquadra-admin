@@ -1,8 +1,8 @@
 <template>
-  <div class="flex justify-between w-screen h-screen">
+  <div class="flex justify-between h-screen">
     <DashboardMenu :name="user.name" :avatar="user.avatar"></DashboardMenu>
 
-    <div class="bg-base-100 w-[100%]">
+    <div class="bg-base-100 w-full">
       <router-view></router-view>
     </div>
   </div>
