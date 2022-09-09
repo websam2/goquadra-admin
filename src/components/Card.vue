@@ -14,7 +14,7 @@
 export default {
   props:{
         text: String,
-        number: String,
+        number: Number,
     }
 };
 </script>

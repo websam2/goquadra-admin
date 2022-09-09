@@ -1,14 +1,14 @@
 <template>
-  <div
-    id="home"
-    class="bg-base-100 flex flex-col h-[100%] overflow-y-auto p-6"
-  >
+  <Loading v-show="isLoading" class="w-[90%]" />
+  <div id="home" class="bg-base-100 flex flex-col h-[100%] overflow-y-auto p-6">
     <Title text="Painel de Controle"></Title>
-    <div class="flex flex-row  justify-center">
-      <Card text="Agendamento Diários" number="20"> </Card>
-      <Card text="Agendamento Mensais" number="20"> </Card>
-      <Card text="Quadras" number="20"> </Card>
-      <Card text="Visualização Perfil" number="20"> </Card>
+    <div class="flex flex-row justify-center">
+      <Card text="Agendamento Diários" :number="dash.appointments_today">
+      </Card>
+      <Card text="Agendamento Mensais" :number="dash.appointments_month">
+      </Card>
+      <Card text="Quadras" :number="dash.field_count"> </Card>
+      <Card text="Visualização Perfil" :number="0"> </Card>
     </div>
     <div
       class="flex flex-col h-[469px] bg-neutral rounded-md shadow-md m-5 p-6"
@@ -62,13 +62,17 @@
 
     <!-- Cards dos gráficos -->
     <div class="flex fle-row m-2 justify-between">
-      <div class="flex flex-col w-[50%] bg-neutral rounded-md shadow-md m-auto p-6">
+      <div
+        class="flex flex-col w-[50%] bg-neutral rounded-md shadow-md m-auto p-6"
+      >
         <SubTitle text="Recebimentos semanais"></SubTitle>
         <div class="chart1">
           <LineChart1 class=""></LineChart1>
         </div>
       </div>
-      <div class="flex flex-col w-[50%] bg-neutral rounded-md shadow-md m-auto p-6">
+      <div
+        class="flex flex-col w-[50%] bg-neutral rounded-md shadow-md m-auto p-6"
+      >
         <SubTitle text="Recebimentos mensais"></SubTitle>
         <div class="chart2">
           <LineChart2 class=""></LineChart2>
@@ -161,6 +165,7 @@ import SubTitle from "../../components/SubTitle.vue";
 import Title from "../../components/Title.vue";
 import ClientSchedule from "./components/ClientSchedule.vue";
 import EditClientSchedule from "./components/EditClientSchedule.vue";
+import Loading from "../../components/Loading.vue";
 
 export default {
   components: {
@@ -171,40 +176,36 @@ export default {
     LineChart2,
     ClientSchedule,
     EditClientSchedule,
+    Loading,
   },
-
-  // props: {
-  //   today: Number,
-  //   month: Number,
-  //   count: Number,
-  //   visits: Number,
-  // },
-
-  // autologin() {
-  //   const token = localStorage.getItem("token");
-  //   if (forgot === "true") {
-  //     if (token) {
-  //       axios
-  //         .get(
-  //           "https://api.goquadra.com.br/api/company/dash",
-  //           {},
-  //           {
-  //             headers: { Authorization: `Bearer ${token}` },
-  //           }
-  //         )
-  //         .then((response) => {
-  //           this.isLoading = false;
-  //           console.log(response.data);
-  //           localStorage.setItem("token", response.data.access_token);
-  //           this.$router.push("/dashboard/home");
-  //         })
-  //         .catch((error) => {
-  //           this.isLoading = false;
-  //           console.log(error);
-  //         });
-  //     }
-  //   }
-  // },
+  data() {
+    return {
+      dash: {},
+      isLoading: false,
+      token: localStorage.getItem("token"),
+    };
+  },
+  methods: {
+    getData() {
+      this.isLoading = true;
+      axios
+        .get("https://api.goquadra.com.br/api/company/dash", {
+          headers: { Authorization: `Bearer ${this.token}` },
+        })
+        .then((response) => {
+          this.isLoading = false;
+          this.dash = response.data;
+          console.log(response.data);
+        })
+        .catch((error) => {
+          this.isLoading = false;
+          console.log(error);
+        });
+    },
+  },
+  mounted() {
+    this.getData();
+  },
 };
 </script>
 
