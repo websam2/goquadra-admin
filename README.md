@@ -2,6 +2,6 @@
 
 Painel administrativo do GOQUADRA + consumo de API
 
-## Recommended IDE Setup
+## Acesso
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+Só será liberado com as devidas permissões do admin.
